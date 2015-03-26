@@ -35,7 +35,7 @@ class User extends CActiveRecord
 				self::USER_GROUP_SYSTEM => '系统管理员',
 			);
 		else
-			return self::getUserGroupLabel()[$user_group];
+			return self::getUserGroupLabel()->$user_group;
 	}
 
 	/**
