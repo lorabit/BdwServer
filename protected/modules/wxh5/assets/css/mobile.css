@@ -1,0 +1,217 @@
+
+#operate-panel{
+	padding:10px;
+	width:100%;
+	position: fixed;
+	bottom:0px;
+	left:0px;
+	background: #f8f8f8;
+	height:60px;
+	z-index:1000;
+	border-top:1px solid #BBB;
+}
+#option-panel{
+	position: fixed;
+	top:0px;
+	left:0px;
+	padding:0px;
+	margin:0px;
+	width:100%;
+	z-index:1000;
+	background: #FFF;
+}
+
+
+
+#data-viewer{}
+#guide{margin-bottom:70px;padding:10px;float:left;}
+.page-button{font-size:20px;padding:5px; vertical-align: middle;height:100%;text-align: center;width:50px;color:#F40;}
+.page-button:hover{color:#F30;}
+.page-button span{top:calc(50% - 10px);}
+#submitData{display: none;}
+
+
+#progress{width: calc(100% - 100px);float:left;padding:0px 10px 0px 10px;height:100%;}
+.progress-item{
+    height:100%;
+    display: block;
+    float:left;
+    padding:5px;
+}
+.progress-item div{
+	border-radius: 3px;
+	height:100%;
+    background:#FFF;
+    border: 1px solid #e0dedf;
+    text-align: center;
+    line-height:30px;
+    color: #666;
+}
+.progress-item.current div{
+	border: 1px solid #9AC1D5;
+	background: #CBEDFF;
+}
+
+.progress-item.filled div{
+	border: 0px solid #e0f2c0;
+	background: #fe9402;
+	color: #FFF;
+}
+
+.progress-item.filled.current div{
+	border: 1px solid #F40;
+	background: #F40;
+}
+
+
+/* 
+ *
+ *OptionCSS - Dropdown2 
+ *
+ */
+
+.secondLevel {opacity: 0;}
+#option-panel .dropdown{
+	padding:0px;
+	width:100%;
+}
+#option-panel .dropdown button{background: #FFF;color: #F40;width:100%;text-align:left;border-radius:0px;height:40px;border:none;/* font-weight: bold; */border-bottom: 1px solid #EEE;}
+#option-panel .dropdown ul{width:100%;border-radius:0px;margin-top:0px;padding-top:0px;border-top:none;background: #FFF;}
+#option-panel .dropdown ul li{height:40px;width:50%;float:left;padding: 2.5px;border-bottom:1px solid #EEE;}
+#option-panel .dropdown ul li a{color: #999;line-height: 30px;height:100%;width:100%;background: #FFF;text-align: left;}
+#option-panel .dropdown ul li a .glyphicon-ok{float:right;margin-top:6px;display: none;}
+#option-panel .dropdown ul li.active a .glyphicon-ok{display: block;}
+#option-panel .dropdown ul li.active a{color:#F40;}
+#option-panel .dropdown ul li a:hover{color:#F40;}
+
+
+/* 
+ *
+ *OptionCSS - Box 
+ *
+ */
+
+.boxImg{
+	margin:auto;
+}
+
+
+/* 
+ *
+ *OptionCSS - Radio 单选类型
+ *
+ */
+
+.badge-inverse{
+	background:#F40;
+	color:#FFF;
+	margin-right:5px;
+	font-size:12px;
+}
+.radio-container{
+	background: #f8f8f8;
+	border-bottom: 1px solid #BBB;
+}
+
+.option-radio input{display:none;}
+.option-radio{
+	background:#FFF;
+	min-width:calc(33% - 10px);
+	margin:5px;
+	text-align:center;
+	height:50px;
+	line-height:30px;;
+	font-size:15px;
+	color:#666;
+	border:1px solid #e0dedf;
+	border-radius: 5px;
+	padding:10px;
+}
+
+.option-radio.active{
+	background: #F40;
+	color: #FFF;
+}
+
+.top-bar{
+	height:60px;
+	line-height:80px;
+	width:100%;
+	background: #f8f8f8;
+	position: fixed;
+	border-bottom:1px solid #b2b2b2;
+	font-weight: bold;
+	z-index:10000;
+}
+
+.tabbar{position:fixed;bottom:0px;
+height:50px;
+background:rgba(255,255,255,0.9);
+width:100%;
+border-top:1px solid rgba(200,200,200,0.9);
+z-index:10;
+}
+
+.tabbar .tab{float:left;width:33.3333%;text-align:center;font-size:11px;color:#999;text-decoration: none;}
+.tabbar .tab .glyphicon{width: 100%;margin-top:4px;margin-bottom:5px;font-size:23px;}
+.tabbar .tab:hover,.tabbar .tab.active{color:#F40;}
+
+/*
+ * iOS list
+*/
+
+.ios-tags{
+		padding-top:5px;
+		border-bottom:1px solid #dcdcdc;
+		background: #FFF;
+		width:100%;
+		height:auto;
+		float:left;
+		position: fixed;
+		top:0px;
+		left:0px;
+		z-index:100000;
+	}
+
+	.ios-tags a{height:25px;line-height: 20px;display: block;float:left;width:20%;text-align: center;}
+	.ios-tags a.selected{border-bottom:2px solid #F40;}
+	.ios-list{margin-top:0px;margin-bottom:5px;}
+	.ios-list{padding:0px 0 0px 0;float:left;width:100%;border-top:1px solid #dcdcdc;/*border-bottom:1px solid #dcdcdc;*//*margin-top:10px;*/background: #FFF;color:#333;}
+	.ios-item{color:#333;float:left;width:100%;height:auto;}
+	.ios-item .single{
+		border-bottom:1px solid #dcdcdc;float:left;width:100%;
+		padding:10px;
+	}
+	.ios-item .title .glyphicon {margin-right: 10px;}
+	.ios-item .title{padding-left:20px;width:60%;height:45px;line-height:45px;border-bottom:1px solid #dcdcdc;float:left;overflow: hidden;}
+	.ios-item .detail{padding-right:20px;width:40%;height:45px;line-height:45px;border-bottom:1px solid #dcdcdc;float:left;text-align: right;color:#666;overflow: hidden;}
+	.ios-item .buttons{padding:10px 0px 0px 0px;float:left;width:100%;text-align: right;}
+
+	.ios-item:hover .title,.ios-item:hover .detail{
+		background: #F40;
+		color:#FFF;
+	}
+
+	.pagination-container{width:auto;float: right;margin:0px 5px 5px 5px;height:auto;}
+	.pagination{
+		display: block;
+		float:left;
+		height:30px;
+		width:60px;
+		line-height:30px;
+		background: #FFF;
+		border-radius: 3px;
+		margin:0px;
+		margin-right:5px;
+		text-align: center;
+		color:#F40;
+		border:1px solid #CCC;
+	}
+	.pagination:hover{
+		color:#FFF;
+		background: #F40;
+	}
+
+	.pagination.disabled{color:#CCC;}
+	.pagination.disabled:hover{color:#CCC;
+		background: #FFF;cursor:default;}
