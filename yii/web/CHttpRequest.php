@@ -464,7 +464,7 @@ class CHttpRequest extends CApplicationComponent
 
 			$scriptUrl=$this->getScriptUrl();
 			$baseUrl=$this->getBaseUrl();
-			if(strpos($pathInfo,$scriptUrl)===0)
+			if(!empty($scriptUrl)&&strpos($pathInfo,$scriptUrl)===0)
 				$pathInfo=substr($pathInfo,strlen($scriptUrl));
 			elseif($baseUrl==='' || strpos($pathInfo,$baseUrl)===0)
 				$pathInfo=substr($pathInfo,strlen($baseUrl));

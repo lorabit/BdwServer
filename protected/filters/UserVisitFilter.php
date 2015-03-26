@@ -40,6 +40,20 @@ class UserVisitFilter extends CFilter {
             return true;
         if($_action=='login'||$_action=='error')
             return true;
+        //APP验证逻辑
+        if($_module=='app'){
+            $cache = Yii::app()->cache;
+            $token = $_GET['token'];
+            if(empty($token))return false;
+            if(isset($cache['app_token_'.$token])){
+                $id = $cache['app_token_'.$token];
+                // var_dump($id);die();
+                $user = User::model()->find("id=$id");
+                $user->setState();
+                return true;
+            }
+            return false;
+        }
         if (!Yii::app()->user->getState('id')) {
             Yii::app()->user->returnUrl = Yii::app()->request->getUrl();
             Yii::app()->request->redirect('/admin/default/login');
