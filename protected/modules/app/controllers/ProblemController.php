@@ -29,7 +29,13 @@ class ProblemController extends DefaultController{
 	}
 
 	public function actionGetProblem(){
-		$this->renderJson($this->getProblem());
+		$this->renderJson(
+			array(
+				'problem'=>$this->getProblem(),
+				'version' => '20150327',
+				'notification' => '欢迎使用本系统！',
+			)
+		);
 	}
 
 	public function getProblem(){

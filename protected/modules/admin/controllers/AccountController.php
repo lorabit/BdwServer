@@ -15,11 +15,10 @@ class AccountController extends DefaultController
 				$user->addError('password','密码 不能为空.');
 			}
 			if($user->validate()){
-
 				$user->password = md5($user->password);
 				if($user->save()){
-					
 					$msg = '创建成功！';
+					$this->redirect('update?id='.$user->id);
 				}else{
 					$msg = '创建失败！';
 				}
@@ -50,16 +49,16 @@ class AccountController extends DefaultController
 	public function actionUpdate(){
 		$user = $this->loadModel('User');
 		$msg = "";
+		$old_password = $user->password;
 		if(isset($_POST['User'])){
 			$user->attributes = $_POST['User'];
 			if(!empty($user->password)){
 				$user->password = md5($user->password);
 			}else{
-				unset($user->password);
+				$user->password = $old_password;
 			}
 			if($user->validate()){
 				if($user->save()){
-					$user->updateWx();
 					$msg = '保存成功！';
 				}else{
 					$msg = '保存失败！';
@@ -67,9 +66,8 @@ class AccountController extends DefaultController
 			}else{
 				$msg = '保存失败！';
 			}
-		}else{
-			unset($user->password);
 		}
+		unset($user->password);
 		$this->render('_form',array('model'=>$user,'msg'=>$msg));
 	}
 

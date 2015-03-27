@@ -199,6 +199,10 @@ class User extends CActiveRecord
 				return false;
 			}
 		}
+		if(isset(Yii::app()->user->id)&&$this->user_group>Yii::app()->user->getState('user_group')){
+			$this->addError('user_group','没有该权限。');
+			return false;
+		}
 		return parent::validate();
 	}
 
