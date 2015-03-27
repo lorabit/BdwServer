@@ -52,7 +52,9 @@ class UserVisitFilter extends CFilter {
                 $user->setState();
                 return true;
             }
-            return false;
+            header('Content-type: application/json');
+            echo  CJSON::encode(array('token_failed'=>1));
+            die();
         }
         if (!Yii::app()->user->getState('id')) {
             Yii::app()->user->returnUrl = Yii::app()->request->getUrl();
