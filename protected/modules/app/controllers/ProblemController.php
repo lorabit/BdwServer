@@ -2,7 +2,30 @@
 class ProblemController extends DefaultController{
 
 	public function actionSubmitAnswer(){
-		
+		$raw_json = file_get_contents("php://input");
+		$json = json_decode($raw_json);
+		$test = new Test;
+		$user = User::model()->find("id=".Yii::app()->user->id);
+		$testee = Testee::model()->find("name=:name and gender=:gender and phone=:phone");
+		if(empty($testee)){
+			$testee = new Testee;
+			$testee->name = $json->name;
+			$testee->dob = $json->dob;
+			$testee->gender = $json->gender;
+			$testee->phone = $json->phone;
+			$testee->save();
+		}
+		$test->testee_id = $testee->id;
+		$test->tester_id = Yii::app()->user->id;
+		$test->province = $user->province;
+		$test->city = $user->city;
+		$test->created_at = date(Yii::app()->controller->module->dateFormat);
+		$test->raw_answer = $raw_json;
+		$test->save();
+		$this->renderJson(array(
+			'success' => 1,
+			'msg' => '我们将会在 7 日内通知受试人结果。'
+		));
 	}
 
 	public function actionGetProblem(){

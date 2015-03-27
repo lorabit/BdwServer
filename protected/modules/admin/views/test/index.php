@@ -1,6 +1,6 @@
 <div class="banner">
-        <h1>店铺查询</h1>
-        <p>Store List</p>
+        <h1>档案查询</h1>
+        <p>Document List</p>
     
 </div>
 
@@ -11,7 +11,6 @@
 $this->widget(
     'booster.widgets.TbExtendedGridView',
     array(
-        'id'=>'user-list',
         'ajaxUrl' => $this->createUrl('index'),
         'filter' => $model,
         'ajaxUpdate'=>false,
@@ -24,12 +23,21 @@ $this->widget(
                 'headerHtmlOptions' => array('style' => 'width: 60px'),
             ),
             array(
-                'name' => 'name',
+                'name' => 'testee_id',
                 'type' => 'raw',
-                'value' => '"<a href=\"/admin/store/update?id=".$data->id."\">".htmlentities($data->name)."</a>"'
+                'value' => '"<a href=\"/admin/test/view?id=".$data->id."\">".htmlentities($data->testee->name)."</a>"'
             ),
             array(
-                'name' => 'description',
+                'header' => '生日',
+                'value' => '$data->testee->dob',
+            ),
+            array(
+                'header' => '性别',
+                'value' => '$data->testee->gender',
+            ),
+            array(
+                'header' => '电话',
+                'value' => '$data->testee->phone',
             ),
             array(
                 'name' => 'created_at',

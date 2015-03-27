@@ -1,27 +1,14 @@
 <?php
 
-class PolicyController extends DefaultController
+class TestController extends DefaultController
 {
-	public function actionCreate()
-	{
-		$model = new Policy;
-		if(isset($_POST['Policy'])){
-			$model->attributes = $_POST['Policy'];
-			if($model->validate()){
-				if($model->save()){
-					$this->redirect(array('update','id'=>$model->id));
-				}
-			}
-		}
-		$this->render('_form',array('model'=>$model));
-	}
 
 	public function actionIndex(){
-		$model = new Policy();
+		$model = new Test();
         $model->unsetAttributes();
-        if(isset($_REQUEST['Policy']))
+        if(isset($_REQUEST['Test']))
         {
-            $model->setAttributes($_REQUEST['Policy']);
+            $model->setAttributes($_REQUEST['Test']);
         }
         
         $criteria = new CDbCriteria();

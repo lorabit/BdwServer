@@ -79,9 +79,8 @@ $path = Yii::app()->assetManager->publish(Yii::getPathOfAlias('admin.assets'));
         <li class="dropdown<?php if($this->id=='policy'||$this->id=='bid'){?> active<?php } ?>">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-file"></span> 档案 <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="/admin/test/stat">统计</a></li>
             <li><a href="/admin/test/index">查询</a></li>
-            <li><a href="/admin/people/index">受试人</a></li>
+            <li><a href="/admin/testee/index">受试人</a></li>
           </ul>
         </li>
         <li class="dropdown<?php if($this->id=='sys'){?> active<?php } ?>">

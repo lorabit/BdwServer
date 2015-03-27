@@ -50,6 +50,8 @@ class Test extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+            'testee' => array(self::BELONGS_TO, 'Testee', 'testee_id'),
+            'tester' => array(self::BELONGS_TO, 'User', 'tester_id'),
 		);
 	}
 
@@ -114,4 +116,14 @@ class Test extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+	
+	public function beforeSave() 
+    {
+        if($this->isNewRecord)
+        {
+            $this->created_at = date(Yii::app()->controller->module->dateFormat);
+        }
+        return parent::beforeSave();
+    }
+
 }

@@ -1,6 +1,6 @@
 <div class="banner">
-        <h1>保单查询</h1>
-        <p>Policy List</p>
+        <h1>受试人查询</h1>
+        <p>Testee List</p>
     
 </div>
 
@@ -11,6 +11,7 @@
 $this->widget(
     'booster.widgets.TbExtendedGridView',
     array(
+        'id'=>'user-list',
         'ajaxUrl' => $this->createUrl('index'),
         'filter' => $model,
         'ajaxUpdate'=>false,
@@ -23,12 +24,18 @@ $this->widget(
                 'headerHtmlOptions' => array('style' => 'width: 60px'),
             ),
             array(
-                'name' => 'user_id',
+                'name' => 'name',
                 'type' => 'raw',
-                'value' => '"<a href=\"/admin/policy/update?id=".$data->id."\">".htmlentities($data->user->nickname)."</a>"'
+                'value' => '"<a href=\"/admin/store/update?id=".$data->id."\">".htmlentities($data->name)."</a>"'
             ),
             array(
-                'name' => 'comment',
+                'name' => 'gender',
+            ),
+            array(
+                'name' => 'dob',
+            ),
+            array(
+                'name' => 'phone',
             ),
             array(
                 'name' => 'created_at',
